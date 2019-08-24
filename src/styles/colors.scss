@@ -1,6 +1,21 @@
 :root {
+    --white: #FFFFFF;
     --silver: #C9C9C9;
+    --silver-chalice: #A5A1A1;
+    --dove-grey: #727272;
+
+    --green: #1DE278;
 }
 
 
 $header-bg: var(--silver);
+
+$main-text-color: var(--silver-chalice);
+$title-color: var(--dove-grey);
+
+$toast-text-color: var(--white);
+
+$input-border-color: var(--silver);
+
+$login-btn-text-color: var(--white);
+$login-btn-bg: var(--green);

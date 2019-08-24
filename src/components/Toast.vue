@@ -1,6 +1,7 @@
 <template>
   <div id="toast">
-      <div class="toast-message__block">Invalid email or password</div>
+      <div class="toast-message__block" v-if="content">{{ content }}</div>
+      <div class="toast-message__block" v-else>Invalid email or password</div>
   </div>
 </template>
  
@@ -8,6 +9,7 @@
 
 
 export default {
+  props: ['content'],
   data () {
     return {
     }
