@@ -15,4 +15,4 @@ npm run dev
 npm run build
 ```
 
-# custom_doors_configurator# doors_configurator
+# doors_configurator
