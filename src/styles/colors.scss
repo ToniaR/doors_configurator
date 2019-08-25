@@ -4,6 +4,8 @@
     --silver-chalice: #A5A1A1;
     --dove-grey: #727272;
 
+    --bombay: #ADB2B5;
+
     --green: #1DE278;
 }
 
@@ -19,3 +21,7 @@ $input-border-color: var(--silver);
 
 $login-btn-text-color: var(--white);
 $login-btn-bg: var(--green);
+
+$loader-bg: var(--bombay);
+$loader-title: var(--white);
+$loader-bar-color: var(--white);

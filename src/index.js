@@ -5,6 +5,7 @@ import App from './App.vue'
 import LoginForm from './components/LoginForm.vue';
 import Home from './components/Home.vue';
 import '../src/styles/app.scss'
+import { store } from './store/store'
 
 Vue.use(VueRouter)
 Vue.use(VueResource)
@@ -25,18 +26,19 @@ const router = new VueRouter({
 })
 
 new Vue({
+    store: store,
     el: '#app',
     created: function() {
         this.checkLogin();
     },
-    router,
-    render: h => h(App),
     watch:{
         '$route':'checkLogin'
     },
+    router,
+    render: h => h(App),
     methods:{
         checkLogin(){
-            if(!localStorage.getItem('login')){
+            if(!JSON.parse(localStorage.getItem('login'))){
                 this.$router.push('/login');
             }else{
                 this.$router.push('/home');
