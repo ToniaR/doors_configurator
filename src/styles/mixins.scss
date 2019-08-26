@@ -4,3 +4,12 @@
   grid-template-rows: $rows;
   grid-template-areas: $areas;
 }
+
+@mixin grid-place($row-start, $row-end, $col-start, $col-end, $align, $justify) {
+  grid-row-start: $row-start;
+  grid-row-end: $row-end;
+  grid-column-start: $col-start;
+  grid-column-end:$col-end; 
+  align-self: $align;
+  justify-self: $justify;
+}

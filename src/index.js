@@ -38,10 +38,10 @@ new Vue({
     render: h => h(App),
     methods:{
         checkLogin(){
-            if(!JSON.parse(localStorage.getItem('login'))){
-                this.$router.push('/login');
-            }else{
+            if(JSON.parse(localStorage.getItem('login')) || this.$store.state.login) {
                 this.$router.push('/home');
+            }else{
+                this.$router.push('/login');
             }
         }
     }

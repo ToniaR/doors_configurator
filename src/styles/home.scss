@@ -1,0 +1,13 @@
+#home {
+    width: 100%;
+    height: calc(100vh - 80px);
+    @include grid-layout(1fr 2fr 2fr 2fr 1fr, 1fr 3fr 1fr,  ". . . .");
+}
+
+.home__steps-block {
+    @include grid-place(1, 2, 3, 4, center, center);
+}
+
+.home__generator {
+    @include grid-place(2, 3, 3, 4, center, center);
+}

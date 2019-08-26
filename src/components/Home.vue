@@ -1,6 +1,7 @@
 <template>
   <div id="home">
-      Yey, you've logged in successfully!
+      <section class="home__steps-block">Step 1</section>
+      <section class="home__generator">Here generate door</section>
   </div>
 </template>
  

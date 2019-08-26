@@ -11,13 +11,12 @@
       </div>
       <div class="form-field">
         <label class="form__label">
-          <input type="checkbox" class="form__checkbox" v-model="keepLoggedIn"/>
-          Keep me logged in
+          <input type="checkbox" class="form__checkbox" v-model="keepLoggedIn" @change="updateCheckbox"/>
+          <span class="form__label-text">Keep me logged in</span>
         </label>
       </div>   
-      <button class="form__login-btn" type="submit" @click.prevent="login">Login</button>
+      <button class="form__login-btn" type="submit" @click.prevent="login" :disabled="loading">Login</button>
     </form>
-    <!-- v-show="loading" -->
     <c-loader v-if="loading"></c-loader> 
   </div>
 </template>
@@ -34,6 +33,8 @@ export default {
       username: '',
       password: '',
       showErrorToast: false,
+      errorMessage: '',
+      loading: false
     }
   },
   components: {
@@ -41,26 +42,14 @@ export default {
     'c-toast-alert': Toast
   },
   computed: {
-    loading() {
-      return this.$store.state.loading;
-    },
-    // username() {
-    //   return this.$store.state.username;
-    // },
-    // password() {
-    //   return this.$store.state.password;
-    // },
-    // showErrorToast() {
-    //   return this.$store.state.showErrorToast;
-    // },
-    errorMessage() {
-      return this.$store.state.errorMessage;
-    },
     keepLoggedIn() {
       return this.$store.state.keepLoggedIn;
     }
   },
   methods: {
+    onShowLoader: function() {
+
+    },
     login: function() {
       if(this.username != '' && this.password != '') {
         let postableData = {
@@ -68,25 +57,32 @@ export default {
           password: this.password 
         }
         this.$http.post('https://bench-api.applover.pl/api/v1/login', postableData).then( res => {
-          this.$store.state.loading = true;
+          this.loading = true;
+          setTimeout(() => {
+            this.loading = false;
+            this.$store.dispatch('update_user_name',this.username);
+            this.$store.state.login = true;
+            this.$router.push('/home')
 
-          // setTimeout(() => {
-          //   this.$store.state.loading = false;
-          //   this.$store.dispatch('update_user_name',this.username);
 
-          //   this.$router.push('/home')
-          //   localStorage.setItem('login', true);
+            if (this.keepLoggedIn) {
+              localStorage.setItem('login', true);
+            }
+           
             
-          // }, 10000)
-        }, err => {
+          }, 2000)
+        }).catch( err => {
+            this.loading = false;
             this.errorMessage = err.statusText
             this.showErrorToast = true;
+            this.$store.state.login = false;
             localStorage.setItem('login', false);
             this.$router.push('/login')
         })
-        
-        this.loading = true;
       }
+    },
+    updateCheckbox: function() {
+       this.$store.dispatch('update_login_checkbox',this.keepLoggedIn);
     }
   }
 }
