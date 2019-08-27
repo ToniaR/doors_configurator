@@ -62,7 +62,7 @@ export default {
             this.loading = false;
             this.$store.dispatch('update_user_name',this.username);
             this.$store.state.login = true;
-            this.$router.push('/home')
+            this.$router.push('/generator')
 
 
             if (this.keepLoggedIn) {

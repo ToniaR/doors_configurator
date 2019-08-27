@@ -1,0 +1,212 @@
+#home {
+    width: 100%;
+    height: calc(100vh - 80px);
+    @include grid-layout(1fr 2fr 2fr 2fr 1fr, 1fr 3fr 1fr,  ". . . .");
+}
+
+.home__steps-block {
+    @include grid-place(1, 2, 3, 4, center, center);
+    @include flex-block(row, baseline, center);
+}
+
+.home__step{
+    @include flex-block(column, center, center);
+}
+
+.home__step-circle {
+    top: 102px;
+    left: 659px;
+    width: 46px;
+    height: 46px;
+    margin-bottom: 1em;
+    background: $step-bg 0% 0% no-repeat padding-box;
+    border-radius: 100%;
+    font-size: 7px;
+    line-height: 46px;
+    text-align: center;
+    color: $step-icon-color;
+}
+
+.home__step-circle--active {
+    background-color: $step-bg--active;
+    color: $step-color--active
+}
+
+.home-step__progress-line {
+    width: 130px;
+    height: 2px;
+    background: #EBF7FF 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.home__step-title {
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 0;
+    color: $step-text-color;
+    text-transform: uppercase;
+}
+
+
+.home__generator {
+    @include grid-place(2, 3, 2, 5, baseline, center);
+    @include flex-block(row, flex-start, center); 
+}
+
+.home__generator-view {
+    position: relative;
+    width: 590px;
+    height: 472px;
+    border: 1px solid #E6E6E6;
+    opacity: 1;
+    @include flex-block(column, center, center);
+} 
+
+
+.door {
+    display: inline-block;
+    width: 160px;
+    height: 300px;
+    border: 5px solid $door-default-color;
+}
+
+
+.generator__btn {
+    position: absolute;
+    bottom: 0;
+    width: 126px;
+    height: 31px;
+    border: 2px solid #6F91AA;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    cursor: pointer;    
+}
+
+.generator__btn--filled {
+    left: 176px;
+    color: #FFFFFF;
+    background: #6F91AA 0% 0% no-repeat padding-box;
+}
+
+.generator__btn--outlined {
+    color: #6F91AA;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 2px solid #6F91AA;
+}
+
+.home__generator-nav {
+    position: relative;
+    width: 332px;
+    height: 472px;
+    padding-left: 2em;
+}
+
+
+
+.generator__label {
+    font-size: 19px;
+    letter-spacing: 0;
+    color: $generator-label-color;
+}
+
+.generator__input {
+    width: 55px;
+    height: 24px;
+    border: 1px solid $generator-input-color;
+    font-size: 19px;
+    letter-spacing: 0;
+    color: $generator-label-color;
+    padding: 7px;
+    box-sizing: border-box;
+}
+
+.generator__group-label {
+    position: relative;
+    display: block;
+    width: 170px;
+}
+
+
+.generator__input-group {    
+    right: 0;
+    position: absolute;
+}
+
+.generator__divider {
+    width: 153px;
+    height: 0px;
+    margin: 1em 0;
+    border: 1px solid #F7F7F7;
+}
+
+.generator__radio-block {
+    min-width: 300px;
+    height: 50px;
+}
+
+.generator__radio-label {
+    position: relative;
+    width: 100%;
+
+    & > span {
+       position: absolute;
+       top: 0;
+       left: 2em;
+       min-width: 120px;
+    }
+}
+
+input[type=radio]{
+    position: absolute;
+    visibility: hidden;
+  }
+
+  .check{
+    display: block;
+    position: absolute;
+    border: 5px solid #cddbe5;
+    border-radius: 100%;
+    height: 15px;
+    width: 15px;
+    top: 0;
+    left: 0;
+      z-index: 5;
+      transition: border .25s linear;
+      -webkit-transition: border .25s linear;
+    
+    &::before {
+        display: block;
+        position: absolute;
+          content: '';
+        border-radius: 100%;
+        height: 11px;
+        width: 11px;
+        top: 2px;
+        left: 2px;
+        margin: auto;
+          transition: background 0.25s linear;
+          -webkit-transition: background 0.25s linear;
+      }
+  }
+
+  input[type=radio]:checked ~ .check::before{
+    background: #6890b2;
+  }
+  
+
+  .generator__toggle {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+  }
+
+  .door {
+    width: 145px;
+    height: 321px;
+    margin-right: 1px;
+    transform: matrix(-1, 0, 0, -1, 0, 0);
+    opacity: 1;
+  }

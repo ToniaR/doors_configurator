@@ -12,7 +12,11 @@ export const store = new Vuex.Store({
         password: '',
         keepLoggedIn: false,
         login: false,
-        organization: {}
+        organization: {},
+        doorType: 'single',
+        doorWidth: 0,
+        doorHeight: 0,
+        step: 1
     },
     mutations: {
         username(state,name){
@@ -26,7 +30,20 @@ export const store = new Vuex.Store({
         },
         organization(state, name) {
             state.organization = name;
+        },
+        set_door_type(state, name) {
+            state.doorType = name
+        },
+        set_door_width(state, name) {
+            state.doorWidth = name
+        },
+        set_door_height(state, name) {
+            state.doorHeight = name
+        },
+        set_step(state, name) {
+            state.step = name;
         }
+
     },
     actions: {
         update_user_name(store, name) {

@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import App from './App.vue'
 import LoginForm from './components/LoginForm.vue';
-import Home from './components/Home.vue';
+import Generator from './components/Generator.vue';
 import '../src/styles/app.scss'
 import { store } from './store/store'
 
@@ -13,9 +13,9 @@ Vue.use(VueResource)
 const router = new VueRouter({
     routes: [
         {
-            path: '/home',
-            name: 'Home',
-            component: Home
+            path: '/generator',
+            name: 'Generator',
+            component: Generator
         },
         {
             path: '/login',
@@ -39,7 +39,7 @@ new Vue({
     methods:{
         checkLogin(){
             if(JSON.parse(localStorage.getItem('login')) || this.$store.state.login) {
-                this.$router.push('/home');
+                this.$router.push('/generator');
             }else{
                 this.$router.push('/login');
             }

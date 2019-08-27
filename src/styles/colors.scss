@@ -1,15 +1,22 @@
 :root {
     --white: #FFFFFF;
+    --alabaster: #F7F7F7;
     --silver: #C9C9C9;
     --silver-chalice: #A5A1A1;
-    --dove-grey: #727272;
+    --dove-grey: hsl(0, 0%, 45%);
     --gray: #7E7E7E;
+    --oslo-gray: #848C93;
 
 
     --bombay: #ADB2B5;
 
     --green: #1DE278;
     --violet: #77779D;
+
+    --boticelli: #CDDBE5;
+    --hippi-blue: #6991B2;
+
+    --scorpion: #5A5858;
 }
 
 
@@ -36,3 +43,16 @@ $loader-title: var(--white);
 $loader-bar-color: var(--white);
 
 $checkbox--checked: var(--silver);
+
+$step-bg:  var(--boticelli);
+$step-icon-color: var(--hippi-blue);
+$step-text-color: var(--oslo-grey);
+
+$step-bg--active: var(--hippi-blue);
+$step-color--active: var(--white); 
+
+$generator-label-color: var(--silver-chalice);
+$generator-input-color: var(--silver-chalice);
+$generator-divider: var(--alabaster);
+
+$door-default-color: var(--scorpion);
