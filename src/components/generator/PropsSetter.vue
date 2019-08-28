@@ -1,12 +1,11 @@
 <template>
     <div class="home__generator-nav">
         <c-step-1 v-show="step === 1"></c-step-1>
-
         <c-step-2 v-show="step === 2"></c-step-2>
         <c-step-3 v-show="step === 3"></c-step-3>
 
         <button v-if="step !== 1" class="generator__btn generator__btn--outlined" @click="previousStep">Back</button>
-        <button class="generator__btn generator__btn--filled" @click="nextStep">Next step</button>
+        <button :class="['generator__btn generator__btn--filled', {'generator__btn--left' : step == 1}]" @click="nextStep">Next step</button>
     </div>
 </template>
 <script>

@@ -1,14 +1,17 @@
 <template>
     <div id="step1">
-        <p class="generator__label">Door type</p>
+        <p class="generator__label">
+            Door type
+            <button class="generator__info-btn"></button>
+        </p>
         <hr class="generator__divider">
         <div class="generator__radio-block">
-        <label for="s-option" class="generator__label generator__radio-label">
-            <input type="radio" id="s-option" name="selector"  v-model="doorType" value="single">
-            <span>Single door</span>
-            
-            <div class="check"><div class="inside"></div></div>
-        </label>
+            <label for="s-option" class="generator__label generator__radio-label">
+                <input type="radio" id="s-option" name="selector"  v-model="doorType" value="single">
+                <span>Single door</span>
+                
+                <div class="check"><div class="inside"></div></div>
+            </label>
         </div>
         <div class="generator__radio-block">
         <label for="d-option" class="generator__label generator__radio-label">
@@ -76,7 +79,6 @@ export default {
   methods: {
     onSetType: function() {
         this.$store.dispatch('update_door_type', !this.door.single)
-        console.log(1, this.door.single);
     },
     updateWidth (e) {
         this.$store.commit('set_door_width', e.target.value)

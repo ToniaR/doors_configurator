@@ -25,6 +25,7 @@
     line-height: 46px;
     text-align: center;
     color: $step-icon-color;
+    transition: 0.3s all ease-out;
 }
 
 .home__step-circle--active {
@@ -64,6 +65,7 @@
 
 
 .door {
+    position: relative;
     display: inline-block;
     width: 160px;
     height: 300px;
@@ -97,6 +99,10 @@
     border: 2px solid #6F91AA;
 }
 
+.generator__btn--left {
+    left: 2em;
+}
+
 .home__generator-nav {
     position: relative;
     width: 332px;
@@ -119,20 +125,24 @@
     font-size: 19px;
     letter-spacing: 0;
     color: $generator-label-color;
-    padding: 7px;
+    // padding: 7px;
     box-sizing: border-box;
 }
 
 .generator__group-label {
     position: relative;
     display: block;
-    width: 170px;
+    min-width: 170px;
 }
 
 
 .generator__input-group {    
     right: 0;
+    top: 4px;
+    top: 5px;
     position: absolute;
+    @include flex-block(row, center, space-around);
+    width: 100px;
 }
 
 .generator__divider {
@@ -145,6 +155,33 @@
 .generator__radio-block {
     min-width: 300px;
     height: 50px;
+}
+
+.generator__radio-block--inline {
+    min-width: 100px;
+    display: inline-block;
+
+    .generator__radio-label {
+        left: 10px;
+    }
+
+    .check {
+        width: 10px;
+        height: 10px;
+
+        &::before {
+            height: 8px;
+            width: 8px;
+            top: 1px;
+            left: 1px;
+            margin: auto;
+        }
+    }
+
+    label > span {
+        font-size: 14px;
+        color: #6890b2
+    }
 }
 
 .generator__radio-label {
@@ -208,5 +245,64 @@ input[type=radio]{
     height: 321px;
     margin-right: 1px;
     transform: matrix(-1, 0, 0, -1, 0, 0);
+    opacity: 1;
+  }
+
+  .generator__btn--square {
+    width: 24px;
+    height: 24px;
+    background-color: $btn-square-bg;
+    color: $btn-square-color;
+    border: 0;
+  }
+
+  .generator__input--square {
+      border: 1px solid $btn-square-color;
+      width: 24px;
+      height: 24px;
+  }
+
+  .generator__color {
+    width: 35px;
+    height: 35px;
+    margin: 9px auto;
+    border-radius: 100%;
+  }
+
+  .generator__color--white {
+      background-color: #F4F2F2;
+  }
+  .generator__color--black {
+      background-color: #000000;
+  }
+  .generator__color--gray {
+      background-color: #797474;
+  }
+
+  .generator__info-btn {
+    width: 15px;
+    height: 15px;
+    border: 0;
+    background: url(../img/info.svg) center center no-repeat;
+    background-size: contain;
+    cursor: pointer;
+  }
+
+  .beam {
+    height: 5px;
+    transform: matrix(-1, 0, 0, -1, 0, 0);
+    background: #5A5858 0% 0% no-repeat padding-box;
+    opacity: 1;
+    position: absolute;
+    // top: calc((331px - 80px));
+    width: 100%;
+  }
+
+  .post {
+    position: absolute;
+    width: 7px;
+    height: 100%;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    background: #5A5858 0% 0% no-repeat padding-box;
     opacity: 1;
   }

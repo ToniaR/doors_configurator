@@ -16,7 +16,10 @@ export const store = new Vuex.Store({
         doorType: 'single',
         doorWidth: 0,
         doorHeight: 0,
-        step: 1
+        step: 1,
+        beams: 0,
+        posts: 0,
+        doorColor: '#000000'
     },
     mutations: {
         username(state,name){
@@ -42,7 +45,16 @@ export const store = new Vuex.Store({
         },
         set_step(state, name) {
             state.step = name;
-        }
+        },
+        set_beams(state, name) {
+            state.beams = name;
+        },
+        set_posts(state, name) {
+            state.posts = name;
+        },
+        set_door_color(state, name) {
+            state.doorColor = name;
+        },
 
     },
     actions: {
