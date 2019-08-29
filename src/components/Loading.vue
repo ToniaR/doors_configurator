@@ -1,7 +1,7 @@
 <template>
   <div id="loading">
     <div class="loader-wrapper">
-      <p class="loader-wrapper__title">Processing...</p>
+      <p class="loader-wrapper__title">{{ $t('processing') }}...</p>
       <div class="loader-wrapper__progress-bar-wrapper">
         <div class="loader-wrapper__progress-bar">
           <span class="loader-wrapper__progress-bar-fill" :style="{ width: percentage + '%' }"></span>

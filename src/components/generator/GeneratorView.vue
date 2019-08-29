@@ -23,7 +23,7 @@ export default {
     }
   },
   watch: {
-      doorType: function () {
+    doorType: function () {
           this.setWings();
       },
       doorWidth: function () {
@@ -102,30 +102,51 @@ export default {
       },
       addBeam: function(num) {
           let doors = document.querySelectorAll('.door');
+
           doors.forEach(door => {
+            let fraction, top = 0;
            let that = this;
            let beam = document.createElement('div');
            beam.className = 'beam';
            door.appendChild(beam);
-           let fraction = (that.doorHeight / 5);
-           let top = that.doorHeight - (fraction * num);
+           fraction = (that.doorHeight / 5);
+           top = that.doorHeight - (fraction * num);
            beam.style.top = top + 'px';
           });
       },
       addPost: function(num) {
-           console.log('num', num )
           let doors = document.querySelectorAll('.door');
           doors.forEach(door => {
+            let fraction, left = 0;
            let that = this;
            let post = document.createElement('div');
            post.className = 'post';
            door.appendChild(post);
-           let fraction = (that.doorWidth / 3); //size of single fraction
-           console.log('fraction', fraction);
-           let left = that.doorWidth - (fraction * num);
+           fraction = (that.doorWidth / 3); //size of single fraction
+           left = that.doorWidth - (fraction * num);
            post.style.left = left + 'px';
           });
-      }
+      },
+    removeBeam: function() {
+        let doors = document.querySelectorAll('.door');
+
+        doors.forEach(door => {
+        let that = this;
+        let beam = document.querySelector('.beam');
+        door.removeChild(beam);
+        });
+    },
+    removePost: function() {
+        let doors = document.querySelectorAll('.door');
+
+        doors.forEach(door => {
+        let that = this;
+        let post = document.querySelector('.post');
+        door.removeChild(post);
+        });
+    },
+
+
   }
 }
 </script>

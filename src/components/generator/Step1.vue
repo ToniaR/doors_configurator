@@ -1,14 +1,14 @@
 <template>
     <div id="step1">
         <p class="generator__label">
-            Door type
+            {{ $t('door_type') }}
             <button class="generator__info-btn"></button>
         </p>
         <hr class="generator__divider">
         <div class="generator__radio-block">
             <label for="s-option" class="generator__label generator__radio-label">
                 <input type="radio" id="s-option" name="selector"  v-model="doorType" value="single">
-                <span>Single door</span>
+                <span>{{ $t('single_door') }}</span>
                 
                 <div class="check"><div class="inside"></div></div>
             </label>
@@ -16,16 +16,16 @@
         <div class="generator__radio-block">
         <label for="d-option" class="generator__label generator__radio-label">
             <input type="radio" id="d-option" name="selector" v-model="doorType" value="double">
-            <span>Double door</span>
+            <span>{{ $t('double_door') }}</span>
             
             <div class="check"><div class="inside"></div></div>
         </label>
         </div>
-        <p class="generator__label">Door size</p>
+        <p class="generator__label">{{ $t('door_size') }}</p>
         <hr class="generator__divider">
         <div class="form-field">
             <label class="generator__label generator__group-label">
-                Width
+                {{ $t('width') }}
                 <span class="generator__input-group">
                 <input type="text" class="generator__input" max="160" :value="doorWidth" @input="updateWidth">
                 cm
@@ -34,7 +34,7 @@
         </div>
         <div class="form-field">
             <label class="generator__label generator__group-label">
-                Height
+                {{ $t('height') }}
                 <span class="generator__input-group">
                 <input type="text" class="generator__input" max="300" :value="doorHeight" @input="updateHeight">
                 cm

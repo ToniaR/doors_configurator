@@ -1,10 +1,10 @@
 <template>
     <div id="propsSetterStep2">
-        <p class="generator__label">Door division</p>       
+        <p class="generator__label">{{ $t('door_division') }}</p>       
         <hr class="generator__divider">
         <div class="form-field">
             <label class="generator__label generator__group-label">
-                Number of beams
+                {{ $t('number_of_beams') }}
                 <span class="generator__input-group">
                     <input type="text" class="generator__input generator__input--square" :value="beams" max="4">
                     <button class="generator__btn--square" @click="increaseBeams" :disable="beams == 4">+</button> 
@@ -14,7 +14,7 @@
         </div>
         <div class="form-field">
             <label class="generator__label generator__group-label">
-                Number of posts
+                {{ $t('number_of_posts') }}
                 <span class="generator__input-group">
                     <input type="text" class="generator__input generator__input--square" :value="posts" max="2">
                     <button class="generator__btn--square" @click="increasePosts" :disable="posts == 2">+</button> 
@@ -31,6 +31,7 @@ import { scrypt } from 'crypto';
 export default {
   data () {
     return {
+
     }
   },
   computed: {

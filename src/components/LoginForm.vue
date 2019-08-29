@@ -1,21 +1,21 @@
 <template>
   <div id="loginForm" class="login-form--blured">
     <c-toast-alert v-show="showErrorToast" :content="errorMessage"></c-toast-alert>
-    <h1 class="form__title">Log in</h1>
+    <h1 class="form__title">{{ $t('login') }}</h1>
     <form action="/post">
       <div class="form-field">
-        <input type="email" placeholder="Email address" class="form__input" v-model="username"/>
+        <input type="email" :placeholder="$t('email_address')" class="form__input" v-model="username"/>
       </div>
       <div class="form-field">
-        <input type="password" placeholder="Password" class="form__input" v-model="password"/>   
+        <input type="password" :placeholder="$t('password')" class="form__input" v-model="password"/>   
       </div>
       <div class="form-field">
         <label class="form__label">
           <input type="checkbox" class="form__checkbox" v-model="keepLoggedIn" @change="updateCheckbox"/>
-          <span class="form__label-text">Keep me logged in</span>
+          <span class="form__label-text">{{ $t('keep_me_logged_in') }}</span>
         </label>
       </div>   
-      <button class="form__login-btn" type="submit" @click.prevent="login" :disabled="loading">Login</button>
+      <button :class="['form__login-btn', {'form__login-btn--disabled': loading}]" type="submit" @click.prevent="login" :disabled="loading">{{ $t('login') }}</button>
     </form>
     <c-loader v-if="loading"></c-loader> 
   </div>
@@ -61,21 +61,17 @@ export default {
           setTimeout(() => {
             this.loading = false;
             this.$store.dispatch('update_user_name',this.username);
-            this.$store.state.login = true;
+            this.$store.commit('set_login', true)
             this.$router.push('/generator')
-
-
             if (this.keepLoggedIn) {
               localStorage.setItem('login', true);
             }
-           
-            
-          }, 2000)
+          }, 1000)
         }).catch( err => {
             this.loading = false;
             this.errorMessage = err.statusText
             this.showErrorToast = true;
-            this.$store.state.login = false;
+          this.$store.commit('set_login', false)
             localStorage.setItem('login', false);
             this.$router.push('/login')
         })

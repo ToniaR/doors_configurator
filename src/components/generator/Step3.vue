@@ -1,13 +1,13 @@
 <template>
     <div id="propsSetterStep3">
         <div class="home__generator-nav">
-          <p class="generator__label">Choose color</p>
+          <p class="generator__label">{{ $t('choose_color') }}</p>
           <hr class="generator__divider">
           <div class="generator__radio-block generator__radio-block--inline">
               <div class="generator__color generator__color--black"></div>
               <label for="b-color" class="generator__label generator__radio-label">
                   <input type="radio" id="b-color" name="selector"  v-model="doorColor" value="#000000">
-                  <span>Black</span>
+                  <span>{{ $t('black') }}</span>
                   
                   <div class="check"><div class="inside"></div></div>
               </label>
@@ -16,7 +16,7 @@
               <div class="generator__color generator__color--gray"></div>
               <label for="g-color" class="generator__label generator__radio-label">
                   <input type="radio" id="g-color" name="selector"  v-model="doorColor" value="#797474">
-                  <span>Gray</span>
+                  <span>{{ $t('gray') }}</span>
                   
                   <div class="check"><div class="inside"></div></div>
               </label>
@@ -25,7 +25,7 @@
               <div class="generator__color generator__color--white"></div>
               <label for="w-color" class="generator__label generator__radio-label">
                   <input type="radio" id="w-color" name="selector"  v-model="doorColor" value="#F4F2F2">
-                  <span>White</span>
+                  <span>{{ $t('white') }}</span>
                   
                   <div class="check"><div class="inside"></div></div>
               </label>

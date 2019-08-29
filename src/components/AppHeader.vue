@@ -4,16 +4,16 @@
         <a href="#" class="header-wrapper__logo"></a>
         <div class="header-wrapper__nav-block"><!-- change class name-->
             <section class="header-wrapper__lang-block">
-                <label class="header-wrapper__label">Select language</label>
-                <select class="header-wrapper__select">
-                    <option>English</option>
-                    <option>Polski</option>
+                <label class="header-wrapper__label">{{ $t('select_lang') }}</label>
+                <select class="header-wrapper__select" @change="setLocale($event)">
+                    <option value="en">English</option>
+                    <option value="pl">Polski</option>
                 </select>
             </section>
-            <button class="header-wrapper__org-btn" @click.prevent="showData">My organization</button>
+            <button v-if="isLogin" class="header-wrapper__org-btn" @click.prevent="showData">{{ $t('my_organization') }}</button>
             <transition name="fade">
               <div v-show="isVisible" :class="['header-wrapper__tooltip', { isVisible: 'header-wrapper__tooltip--active'}]">
-                <p>Organization</p>
+                <p>{{ $t('organization') }}</p>
                 <ul>
                   <li v-for="(org, key) in organization" :key="key" v-if="key !== 'id'">{{ key }}: {{ org }}</li>
                 </ul>
@@ -39,6 +39,9 @@ export default {
     },
     organization() {
       return this.$store.state.organization;
+    },
+    isLogin() {
+      return this.$store.state.login;
     }
   },
   methods: {
@@ -49,9 +52,15 @@ export default {
       this.$http.get('https://bench-api.applover.pl/api/docs/simulate/organizations/display_organization').then(function(data) {
         this.$store.commit('organization',data.body);
       })
+    },
+    setLocale(event) {
+        let locale = event.target.value;
+        this.$i18n.locale = locale;
+        localStorage.setItem('lang', locale);
     }
   },
   created(){
+    localStorage.setItem('lang', 'en');
     this.getOrganizationData();
   }
 }

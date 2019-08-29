@@ -68,6 +68,10 @@ input, button {
   border: 0;
 }
 
+.form__login-btn--disabled {
+  background-color: $login-btn-bg--disabled;
+}
+
 
 //UNCOMMENT
 // .form__label  {
@@ -223,9 +227,13 @@ input, button {
 }
 
 .loader-wrapper {
-  width: 50%;
+  width: 500px;
   display: block;
-  margin: 30% auto;
+  position: absolute;
+  top: 16%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
 }
 
 .loader-wrapper__title {

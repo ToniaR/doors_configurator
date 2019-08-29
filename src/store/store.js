@@ -25,6 +25,9 @@ export const store = new Vuex.Store({
         username(state,name){
             state.username = name;
         },
+        set_login(state, name) {
+            state.login = name;
+        },
         loginUpdate(state, name) {
             state.loading = name;
         },

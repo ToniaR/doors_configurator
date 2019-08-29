@@ -4,24 +4,24 @@
         <div :class="['home__step-circle', {'home__step-circle--active' : firstStep}]">
         <i class="fas fa-circle"></i>
         </div>
-        <p class="home__step-title">Step 1</p>
-        <p class="home__step-title">Choose door</p>
+        <p class="home__step-title">{{ $t('step1') }}</p>
+        <p class="home__step-title">{{ $t('choose_door') }}</p>
     </div>
     <span class="home-step__progress-line"></span>
     <div class="home__step">
         <div :class="['home__step-circle', {'home__step-circle--active' : secondStep}]">
         <i class="fas fa-circle"></i>
         </div>
-        <p class="home__step-title">Step 2</p>
-        <p class="home__step-title">Choose door division</p>
+        <p class="home__step-title">{{ $t('step2') }}</p>
+        <p class="home__step-title">{{ $t('choose_door_division') }}</p>
     </div>
     <span class="home-step__progress-line"></span>
     <div class="home__step">
         <div :class="['home__step-circle', {'home__step-circle--active' : thirdStep}]">
         <i class="fas fa-circle"></i>
         </div>
-        <p class="home__step-title">Step 3</p>
-        <p class="home__step-title">Choose color</p>
+        <p class="home__step-title">{{ $t('step3') }}</p>
+        <p class="home__step-title">{{ $t('choose_color') }}</p>
     </div>
     </div>
 </template>

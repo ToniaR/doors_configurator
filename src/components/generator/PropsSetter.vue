@@ -4,8 +4,8 @@
         <c-step-2 v-show="step === 2"></c-step-2>
         <c-step-3 v-show="step === 3"></c-step-3>
 
-        <button v-if="step !== 1" class="generator__btn generator__btn--outlined" @click="previousStep">Back</button>
-        <button :class="['generator__btn generator__btn--filled', {'generator__btn--left' : step == 1}]" @click="nextStep">Next step</button>
+        <button v-if="step !== 1" class="generator__btn generator__btn--outlined" @click="previousStep">{{ $t('back') }}</button>
+        <button :class="['generator__btn generator__btn--filled', {'generator__btn--left' : step == 1}]" @click="nextStep">{{ $t('next_step') }}</button>
     </div>
 </template>
 <script>
