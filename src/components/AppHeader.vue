@@ -10,7 +10,7 @@
                     <option value="pl">Polski</option>
                 </select>
             </section>
-            <button v-if="isLogin" class="header-wrapper__org-btn" @click.prevent="showData">{{ $t('my_organization') }}</button>
+            <button v-if="isLogin || btnIsVisible" class="header-wrapper__org-btn" @click.prevent="showData">{{ $t('my_organization') }}</button>
             <transition name="fade">
               <div v-show="isVisible" :class="['header-wrapper__tooltip', { isVisible: 'header-wrapper__tooltip--active'}]">
                 <p>{{ $t('organization') }}</p>
@@ -42,6 +42,9 @@ export default {
     },
     isLogin() {
       return this.$store.state.login;
+    },
+    btnIsVisible() {
+        return JSON.parse(localStorage.getItem('login'));
     }
   },
   methods: {

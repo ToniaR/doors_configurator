@@ -18,8 +18,6 @@
 export default {
   data () {
     return {
-        beemsNum: 0,
-        postsNum: 0
     }
   },
   watch: {
@@ -31,18 +29,6 @@ export default {
       },
       doorHeight: function () {
           this.setHeight();
-      },
-      beams: function() {
-        if (this.beemsNum < 4) {
-        this.beemsNum += 1;
-        }
-        this.addBeam(this.beemsNum);
-      },
-      posts: function() {
-        if (this.postsNum < 2) {
-        this.postsNum += 1;
-        }
-        this.addPost(this.postsNum);
       }
   },
   computed: {
@@ -73,16 +59,15 @@ export default {
           let outputBlock = document.querySelector('.generator__output');
           let singleDoor = document.querySelector('.door');
 
-        //   if ((this.doorType == 'double') && !(outputBlock.contains(document.querySelector('.door--right')))) {
           if(this.doorType == 'double') {
               let door = document.createElement('div');
-              door.className = 'door door--right';
+              door.className = 'door';
 
               outputBlock.appendChild(door);
           }
           else {
-              if (outputBlock.contains(document.querySelector('.door--right'))) {
-                  outputBlock.removeChild(document.querySelector('.door--right'));
+              if (outputBlock.contains(document.querySelectorAll('.door')[1])) {
+                  outputBlock.removeChild(document.querySelectorAll('.door')[1]);
               }
           }
       },
@@ -99,52 +84,7 @@ export default {
            let that = this;
             door.style.height = that.doorHeight + "px";
           });
-      },
-      addBeam: function(num) {
-          let doors = document.querySelectorAll('.door');
-
-          doors.forEach(door => {
-            let fraction, top = 0;
-           let that = this;
-           let beam = document.createElement('div');
-           beam.className = 'beam';
-           door.appendChild(beam);
-           fraction = (that.doorHeight / 5);
-           top = that.doorHeight - (fraction * num);
-           beam.style.top = top + 'px';
-          });
-      },
-      addPost: function(num) {
-          let doors = document.querySelectorAll('.door');
-          doors.forEach(door => {
-            let fraction, left = 0;
-           let that = this;
-           let post = document.createElement('div');
-           post.className = 'post';
-           door.appendChild(post);
-           fraction = (that.doorWidth / 3); //size of single fraction
-           left = that.doorWidth - (fraction * num);
-           post.style.left = left + 'px';
-          });
-      },
-    removeBeam: function() {
-        let doors = document.querySelectorAll('.door');
-
-        doors.forEach(door => {
-        let that = this;
-        let beam = document.querySelector('.beam');
-        door.removeChild(beam);
-        });
-    },
-    removePost: function() {
-        let doors = document.querySelectorAll('.door');
-
-        doors.forEach(door => {
-        let that = this;
-        let post = document.querySelector('.post');
-        door.removeChild(post);
-        });
-    },
+      }
 
 
   }
