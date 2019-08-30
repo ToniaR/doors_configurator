@@ -1,0 +1,43 @@
+.generator__steps-block {
+    @include grid-place(1, 2, 3, 4, center, center);
+    @include flex-block(row, baseline, center);
+}
+
+.steps-block__step{
+    @include flex-block(column, center, center);
+}
+
+.step__circle {
+    top: 102px;
+    left: 659px;
+    width: 46px;
+    height: 46px;
+    margin-bottom: 1em;
+    background: $step-bg 0% 0% no-repeat padding-box;
+    border-radius: 100%;
+    font-size: 7px;
+    line-height: 46px;
+    text-align: center;
+    color: $step-icon-color;
+    transition: 0.3s all ease-out;
+}
+
+.step__circle--active {
+    background-color: $step-bg--active;
+    color: $step-color--active
+}
+
+.step__progress-line {
+    width: 130px;
+    height: 2px;
+    background: $step-progress-line-bg 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.step__title {
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 0;
+    color: $step-text-color;
+    text-transform: uppercase;
+}

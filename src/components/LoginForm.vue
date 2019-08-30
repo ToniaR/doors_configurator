@@ -68,7 +68,7 @@ export default {
             if (this.keepLoggedIn) {
               localStorage.setItem('login', true);
             }
-          }, 1000)
+          }, 1500)
         }).catch( err => {
             this.loading = false;
             this.errorMessage = err.statusText

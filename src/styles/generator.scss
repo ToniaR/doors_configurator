@@ -5,51 +5,6 @@
     position: relative;
 }
 
-.generator__steps-block {
-    @include grid-place(1, 2, 3, 4, center, center);
-    @include flex-block(row, baseline, center);
-}
-
-.steps-block__step{
-    @include flex-block(column, center, center);
-}
-
-.step__circle {
-    top: 102px;
-    left: 659px;
-    width: 46px;
-    height: 46px;
-    margin-bottom: 1em;
-    background: $step-bg 0% 0% no-repeat padding-box;
-    border-radius: 100%;
-    font-size: 7px;
-    line-height: 46px;
-    text-align: center;
-    color: $step-icon-color;
-    transition: 0.3s all ease-out;
-}
-
-.step__circle--active {
-    background-color: $step-bg--active;
-    color: $step-color--active
-}
-
-.step__progress-line {
-    width: 130px;
-    height: 2px;
-    background: #EBF7FF 0% 0% no-repeat padding-box;
-    opacity: 1;
-}
-
-.step__title {
-    text-align: center;
-    font-size: 13px;
-    letter-spacing: 0;
-    color: $step-text-color;
-    text-transform: uppercase;
-}
-
-
 .generator {
     @include grid-place(2, 3, 2, 5, baseline, center);
     @include flex-block(row, flex-start, center); 
@@ -59,7 +14,7 @@
     position: relative;
     width: 590px;
     height: 472px;
-    border: 1px solid #E6E6E6;
+    border: 1px solid $generator-view-border;
     opacity: 1;
     @include flex-block(column, center, center);
 } 
@@ -83,20 +38,19 @@
     font-size: 14px;
     letter-spacing: 0;
     text-transform: uppercase;
-    color: #FFFFFF;
+    color: $generator-btn-color--accent;
     cursor: pointer;    
 }
 
 .generator__btn--filled {
     left: 176px;
-    color: #FFFFFF;
-    background: #6F91AA 0% 0% no-repeat padding-box;
+    background: $generator-btn-color--base 0% 0% no-repeat padding-box;
 }
 
 .generator__btn--outlined {
-    color: #6F91AA;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    border: 2px solid #6F91AA;
+    color: $generator-btn-color--base;
+    background: $generator-btn-color--accent 0% 0% no-repeat padding-box;
+    border: 2px solid $generator-btn-color--base;
 }
 
 .generator__btn--left {
@@ -109,8 +63,6 @@
     height: 472px;
     padding-left: 2em;
 }
-
-
 
 .generator__label {
     font-size: 19px;
@@ -125,7 +77,6 @@
     font-size: 19px;
     letter-spacing: 0;
     color: $generator-label-color;
-    // padding: 7px;
     box-sizing: border-box;
 }
 
@@ -149,7 +100,7 @@
     width: 153px;
     height: 0px;
     margin: 1em 0;
-    border: 1px solid #F7F7F7;
+    border: 1px solid $generator-divider;
 }
 
 .generator__radio-block {
@@ -180,7 +131,7 @@
 
     label > span {
         font-size: 14px;
-        color: #6890b2
+        color: $generator-radio-btn-color--accent;
     }
 }
 
@@ -204,7 +155,7 @@ input[type=radio]{
   .check{
     display: block;
     position: absolute;
-    border: 5px solid #cddbe5;
+    border: 5px solid $generator-radio-btn-color--default;
     border-radius: 100%;
     height: 15px;
     width: 15px;
@@ -230,7 +181,7 @@ input[type=radio]{
   }
 
   input[type=radio]:checked ~ .check::before{
-    background: #6890b2;
+    background: $generator-radio-btn-color--accent;
   }
   
 
@@ -306,13 +257,13 @@ input[type=radio]{
   }
 
   .generator__color--white {
-      background-color: #F4F2F2;
+      background-color: var(--concrete);
   }
   .generator__color--black {
-      background-color: #000000;
+      background-color: var(--black);
   }
   .generator__color--gray {
-      background-color: #797474;
+      background-color: var(--boulder);
   }
 
   .generator__info-btn {
@@ -327,10 +278,9 @@ input[type=radio]{
   .beam {
     height: 5px;
     transform: matrix(-1, 0, 0, -1, 0, 0);
-    background: #5A5858 0% 0% no-repeat padding-box;
+    background: $beam-color--default 0% 0% no-repeat padding-box;
     opacity: 1;
     position: absolute;
-    // top: calc((331px - 80px));
     width: 100%;
   }
 
@@ -339,6 +289,6 @@ input[type=radio]{
     width: 7px;
     height: 100%;
     transform: matrix(1, 0, 0, 1, 0, 0);
-    background: #5A5858 0% 0% no-repeat padding-box;
+    background: $post-color--default 0% 0% no-repeat padding-box;
     opacity: 1;
   }

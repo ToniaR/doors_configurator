@@ -1,0 +1,95 @@
+#loginForm {
+    width: 400px;
+    height: 360px;
+    margin: 200px auto 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form__title {
+    width: 100%;
+  }
+  
+  .form__title,
+  .form-field {
+    margin-bottom: 34px;
+    color: $main-text-color;
+  }
+  
+  .form__input {
+    width: calc(100% - 46px);
+    height: 48px;
+    border: 1px solid $input-border-color;
+    border-radius: 6px;
+    opacity: 1;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: $main-text-color;
+    padding: 0 23px;
+  }
+  
+  .form__login-btn {
+    width: 100%;
+    height: 48px;
+    background: $login-btn-bg 0% 0% no-repeat padding-box;
+    border-radius: 6px;
+    font-size: 18px;
+    letter-spacing: 0;
+    color: $login-btn-text-color;
+    border: 0;
+    cursor: pointer;
+  
+    &:disabled {
+      background-color: $login-btn-bg--disabled;
+    }
+  }
+  
+  .form__login-btn--disabled {
+    background-color: $login-btn-bg--disabled;
+  }
+  
+  .form__label {
+    cursor: pointer;
+    height: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  
+    .form__label-text {
+      font-size: 16px;
+      letter-spacing: 0;
+      color: $generator-label-color;
+      opacity: 1;
+    }
+  
+    input[type="checkbox"]  {
+      display: none;
+      height: 1em;
+      
+      & + .form__label-text:before {
+        content: '\f0c8';
+        font-family: "Font Awesome 5 Free"; 
+        font-weight: 600;
+        font-size: 1em;
+        width: 1.5em;
+        height: 1.5em;
+        border: 1px solid $input-border-color;
+        display: inline-block;
+        margin-right: 1em;
+        color: transparent;
+      }
+      &:checked + .form__label-text:before {
+        content: '\f00c';
+        font-family: "Font Awesome 5 Free";
+        font-weight: 600;
+        font-size: 1em;
+        color: $input-border-color;
+        transition: 0.5s all ease-in;
+      }
+    }
+  
+    .form__label-text {
+      line-height: 2em;
+    }
+  }

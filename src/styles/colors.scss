@@ -1,22 +1,31 @@
 :root {
     --white: #FFFFFF;
     --alabaster: #F7F7F7;
+    --concrete: #F4F2F2;
     --silver: #C9C9C9;
     --silver-chalice: #A5A1A1;
     --dove-grey: hsl(0, 0%, 45%);
     --gray: #7E7E7E;
     --oslo-gray: #848C93;
 
+    --mercury: #E6E6E6;
 
     --bombay: #ADB2B5;
 
     --green: #1DE278;
     --violet: #77779D;
 
+    --ligh-blue: #EBF7FF;
+
     --boticelli: #CDDBE5;
     --hippi-blue: #6991B2;
+    --bermuda-gray: #6F91AA;
+    --ship-cove: #6890b2;
 
     --scorpion: #5A5858;
+    --boulder: #797474;
+
+    --black: #000000;
 }
 
 
@@ -46,6 +55,7 @@ $loader-bar-color: var(--white);
 $checkbox--checked: var(--silver);
 
 $step-bg:  var(--boticelli);
+$step-progress-line-bg: var(--ligh-blue);
 $step-icon-color: var(--hippi-blue);
 $step-text-color: var(--oslo-grey);
 
@@ -61,8 +71,20 @@ $door-default-color: var(--scorpion);
 $btn-square-bg: var(--boticelli);
 $btn-square-color: var(--hippi-blue);
 
+
+$generator-btn-color--accent: var(--white);
+$generator-btn-color--base: var(--bermuda-gray);
+$generator-view-border: var(--mercury);
+
 $generator-toggle--basic: var(--boticelli);
 $generator-toggle-bg--accent: var(--white);
 
 $generator-toggle-bg--basic: var(--silver);
 $generator-toggle--accent: var(--hippi-blue);
+
+
+$generator-radio-btn-color--default: var(--boticelli);
+$generator-radio-btn-color--accent: var(--ship-cove);
+
+$post-color--default: var(--scorpion);
+$beam-color--default: var(--scorpion);
