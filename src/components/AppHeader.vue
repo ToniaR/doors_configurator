@@ -1,7 +1,9 @@
 <template>
   <div id="appHeader">
     <header class="header-wrapper">
-        <a href="#" class="header-wrapper__logo"></a>
+        <a href="#" class="header-wrapper__logo-block">
+          <img src="../img/Logo@2x.png" class="header-wrapper__logo" alt="logo"/>
+        </a>
         <div class="header-wrapper__nav-block"><!-- change class name-->
             <section class="header-wrapper__lang-block">
                 <label class="header-wrapper__label">{{ $t('select_lang') }}</label>
