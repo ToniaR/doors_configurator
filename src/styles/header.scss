@@ -7,14 +7,15 @@
   }
   
   
+  .header-wrapper__logo-block {
+    grid-column: 2/3;
+    align-self: center;
+  }
+
   .header-wrapper__logo {
     width: 47px;
     height: 47px;
-    grid-column: 2/3;
-    align-self: center;
     display: inline-block;
-    background: url('/src/img/Logo@2x.png') center center no-repeat;
-    background-size: contain;
   }
   
   .header-wrapper__nav-block {
