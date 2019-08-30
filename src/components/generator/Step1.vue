@@ -2,7 +2,7 @@
     <div id="step1">
         <p class="generator__label">
             {{ $t('door_type') }}
-            <button class="generator__info-btn"></button>
+            <button class="generator__info-btn" @click="onShow"></button>
         </p>
         <hr class="generator__divider">
         <div class="generator__radio-block">
@@ -45,6 +45,7 @@
 </template>
 
 <script>
+
 export default {
   data () {
     return {
@@ -74,6 +75,14 @@ export default {
         set(value) {
             this.$store.commit('set_door_width', value)
         }
+    },
+    showModal: {
+        get() {
+            return this.$store.state.showModal;
+        },
+        set(value) {
+            this.$store.commit('set_show_modal', value)
+        }
     }
   },
   methods: {
@@ -85,6 +94,9 @@ export default {
     },
     updateHeight (e) {
         this.$store.commit('set_door_height', e.target.value)
+    },
+    onShow() {
+        this.$store.commit('set_show_modal', !this.showModal);
     }
   }
 }

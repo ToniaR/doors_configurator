@@ -18,7 +18,8 @@ export const store = new Vuex.Store({
         step: 1,
         beams: 0,
         posts: 0,
-        doorColor: '#000000'
+        doorColor: '#000000',
+        showModal: false
     },
     mutations: {
         username(state,name){
@@ -57,6 +58,9 @@ export const store = new Vuex.Store({
         set_door_color(state, name) {
             state.doorColor = name;
         },
+        set_show_modal(state, name) {
+            state.showModal = name;
+        }
 
     },
     actions: {

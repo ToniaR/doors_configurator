@@ -15,7 +15,7 @@
           <span class="form__label-text">{{ $t('keep_me_logged_in') }}</span>
         </label>
       </div>   
-      <button :class="['form__login-btn', {'form__login-btn--disabled': loading}]" type="submit" @click.prevent="login" :disabled="loading">{{ $t('login') }}</button>
+      <button :class="['form__login-btn', {'form__login-btn--disabled': hasClicked}]" type="submit" @click.prevent="login" :disabled="loading">{{ $t('login') }}</button>
     </form>
     <c-loader v-if="loading"></c-loader> 
   </div>
@@ -34,7 +34,8 @@ export default {
       password: '',
       showErrorToast: false,
       errorMessage: '',
-      loading: false
+      loading: false,
+      hasClicked: false
     }
   },
   components: {
@@ -51,6 +52,7 @@ export default {
 
     },
     login: function() {
+      this.hasClicked = !this.hasClicked;
       if(this.username != '' && this.password != '') {
         let postableData = {
           email: this.username,

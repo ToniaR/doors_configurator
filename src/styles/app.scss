@@ -5,6 +5,7 @@
 @import './toast.scss';
 @import './header.scss';
 @import './generator.scss';
+@import './infoModal.scss';
 
 * {
   margin: 0;
@@ -66,6 +67,11 @@ input, button {
   letter-spacing: 0;
   color: $login-btn-text-color;
   border: 0;
+  cursor: pointer;
+
+  &:disabled {
+    background-color: $login-btn-bg--disabled;
+  }
 }
 
 .form__login-btn--disabled {
@@ -279,7 +285,3 @@ input, button {
   color: $loader-bar-color;
   font-size: 14px;
 }
-
-// @keyframes animate-bar {
-
-// }

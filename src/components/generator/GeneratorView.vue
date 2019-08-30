@@ -1,8 +1,11 @@
 <template>
-    <div class="home__generator-view">
-        <div class="generator__toggle">
-        <input type="checkbox">
-        2D
+    <div class="generator__view">
+        <div class="generator__toggle" id="viewToggle">
+            <label class="generator__toggle-label">
+                <input type="checkbox" class="generator__toggle-input" v-model="view2D">
+                <span class="generator__toggle-text">3D</span>
+                <span class="generator__toggle-text">2D</span>
+            </label>
         </div>
         <div class="generator__output">
             <div class="door">
@@ -13,23 +16,33 @@
 
 <script>
 
-
-
 export default {
   data () {
     return {
+        view2D: null
     }
   },
   watch: {
     doorType: function () {
-          this.setWings();
-      },
-      doorWidth: function () {
-          this.setWidth();
-      },
-      doorHeight: function () {
-          this.setHeight();
-      }
+        this.setWings();
+    },
+    doorWidth: function () {
+        this.setWidth();
+    },
+    doorHeight: function () {
+        this.setHeight();
+    },
+    view2D: function() {
+        let toggle = document.getElementById('viewToggle');
+        let toggleClass = 'generator__toggle--active'
+        if (toggle.classList.contains(toggleClass)) {
+            toggle.classList.remove(toggleClass);
+        }
+        else {
+            toggle.classList.add(toggleClass);
+        }
+
+    }
   },
   computed: {
     doorType: {

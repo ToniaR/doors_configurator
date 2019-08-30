@@ -1,27 +1,27 @@
 <template>
-    <div class="home__steps-block">
-    <div class="home__step">
-        <div :class="['home__step-circle', {'home__step-circle--active' : firstStep}]">
+    <div class="generator__steps-block">
+    <div class="steps-block__step">
+        <div :class="['step__circle', {'step__circle--active' : firstStep}]">
         <i class="fas fa-circle"></i>
         </div>
-        <p class="home__step-title">{{ $t('step1') }}</p>
-        <p class="home__step-title">{{ $t('choose_door') }}</p>
+        <p class="step__title">{{ $t('step1') }}</p>
+        <p class="step__title">{{ $t('choose_door') }}</p>
     </div>
-    <span class="home-step__progress-line"></span>
-    <div class="home__step">
-        <div :class="['home__step-circle', {'home__step-circle--active' : secondStep}]">
+    <span class="step__progress-line"></span>
+    <div class="steps-block__step">
+        <div :class="['step__circle', {'tep__circle--active' : secondStep}]">
         <i class="fas fa-circle"></i>
         </div>
-        <p class="home__step-title">{{ $t('step2') }}</p>
-        <p class="home__step-title">{{ $t('choose_door_division') }}</p>
+        <p class="step__title">{{ $t('step2') }}</p>
+        <p class="step__title">{{ $t('choose_door_division') }}</p>
     </div>
-    <span class="home-step__progress-line"></span>
-    <div class="home__step">
-        <div :class="['home__step-circle', {'home__step-circle--active' : thirdStep}]">
+    <span class="step__progress-line"></span>
+    <div class="steps-block__step">
+        <div :class="['step__circle', {'step__circle--active' : thirdStep}]">
         <i class="fas fa-circle"></i>
         </div>
-        <p class="home__step-title">{{ $t('step3') }}</p>
-        <p class="home__step-title">{{ $t('choose_color') }}</p>
+        <p class="step__title">{{ $t('step3') }}</p>
+        <p class="step__title">{{ $t('choose_color') }}</p>
     </div>
     </div>
 </template>

@@ -1,19 +1,20 @@
-#home {
+#generatorWrapper {
     width: 100%;
     height: calc(100vh - 80px);
     @include grid-layout(1fr 2fr 2fr 2fr 1fr, 1fr 3fr 1fr,  ". . . .");
+    position: relative;
 }
 
-.home__steps-block {
+.generator__steps-block {
     @include grid-place(1, 2, 3, 4, center, center);
     @include flex-block(row, baseline, center);
 }
 
-.home__step{
+.steps-block__step{
     @include flex-block(column, center, center);
 }
 
-.home__step-circle {
+.step__circle {
     top: 102px;
     left: 659px;
     width: 46px;
@@ -28,19 +29,19 @@
     transition: 0.3s all ease-out;
 }
 
-.home__step-circle--active {
+.step__circle--active {
     background-color: $step-bg--active;
     color: $step-color--active
 }
 
-.home-step__progress-line {
+.step__progress-line {
     width: 130px;
     height: 2px;
     background: #EBF7FF 0% 0% no-repeat padding-box;
     opacity: 1;
 }
 
-.home__step-title {
+.step__title {
     text-align: center;
     font-size: 13px;
     letter-spacing: 0;
@@ -49,12 +50,12 @@
 }
 
 
-.home__generator {
+.generator {
     @include grid-place(2, 3, 2, 5, baseline, center);
     @include flex-block(row, flex-start, center); 
 }
 
-.home__generator-view {
+.generator__view {
     position: relative;
     width: 590px;
     height: 472px;
@@ -78,7 +79,6 @@
     bottom: 0;
     width: 126px;
     height: 31px;
-    border: 2px solid #6F91AA;
     text-align: center;
     font-size: 14px;
     letter-spacing: 0;
@@ -103,7 +103,7 @@
     left: 2em;
 }
 
-.home__generator-nav {
+.generator__nav {
     position: relative;
     width: 332px;
     height: 472px;
@@ -238,6 +238,42 @@ input[type=radio]{
     position: absolute;
     top: 1em;
     right: 1em;
+    width: 80px;
+    height: 30px;
+    background: $generator-toggle-bg--basic;
+    border: 1px solid $generator-toggle--accent;
+    color: $generator-toggle--accent;
+    line-height: 27px;
+    cursor: pointer;
+    transition: all 7ms cubic-bezier(.01,.49,.69,.36);
+
+    &::after {
+        content: '2D';
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        width: 40px;
+        height: 100%;
+        background-color: $generator-toggle-bg--accent;
+        border: 1px solid $generator-toggle--accent;
+        box-sizing: border-box;
+        text-align: center;
+    }
+  }
+
+.generator__toggle--active::after {
+    right: 40px;
+    content: '3D';
+}
+
+  .generator__toggle-label {
+    width: 100%;
+    @include flex-block(row, center, space-around);
+  }
+
+  .generator__toggle-input {
+      display: none;
   }
 
   .door {
